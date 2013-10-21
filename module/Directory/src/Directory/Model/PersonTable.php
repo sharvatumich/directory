@@ -22,9 +22,26 @@ class PersonTable
     public function search($firstname, $lastname)
     {
         $rowset = $this->tableGateway->select(function (Select $select) use($firstname, $lastname, $umid, $uniqname) {
-            $select->where->like('firstname', $firstname);
-            $select->where->OR;
-            $select->where->like('lastname', $lastname);
+
+            if (!empty($firstname)) {
+               $select->where->like('firstname', $firstname.'%');
+            }
+
+            if (!empty($lastname)) {
+                $select->where->OR;
+                $select->where->like('lastname', $lastname.'%');
+            }
+
+            if (!empty($umid)) {
+                $select->where->OR;
+                $select->where->like('umid', '%'.$umid.'%');
+            }
+
+            if (!empty($uniqname)) {
+                $select->where->OR;
+                $select->where->like('uniqname', $uniqname.'%');
+            }
+
             $select->limit(1);
         });
         $row = $rowset->current();
