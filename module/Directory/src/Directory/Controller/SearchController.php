@@ -32,6 +32,7 @@ class SearchController extends AbstractActionController
         $umid = $this->getRequest()->getPost('umid');
 
         $person = $this->getPersonTable()->search($firstname, $lastname, $umid, $uniqname);
+
         return new ViewModel(array(
             'person' => $person,
             ));
