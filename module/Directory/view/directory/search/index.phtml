@@ -1,18 +1,65 @@
 <p> Welcome </p>
+<div class="three fourths padded">
 <form name="search" method="POST" action="load">
+    <fieldset>
+        <legend>Directory</legend>
 
-    <label for="uniqname">Uniqname</label>
-    <input type="text" name="uniqname" />
+        <div class="row">
 
-    <label for="umid">UM ID</label>
-    <input type="text" name="umid" />
+                <div class="one fourth padded">
+                    <label for="status">Status</label>
+                    <ul class="unstyled zero">
+                        <li>
+                            <input type="radio" id="statusPerson" name="status" checked="">
+                            <label for="statusPerson" class="inline">Person</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="statusOrganization" name="status" checked="">
+                            <label for="statusOrganization" class="inline">Organization</label>
+                        </li>
+                    </ul>
+                </div>
 
-    <label for="lastname">Last Name</label>
-    <input type="text" name="lastname" />
+            <div class="one fourth padded">
+                <label for="uniqname">Uniqname</label>
+                <input id="uniqname" type="text" name="uniqname">
+            </div>
+            <div class="one fourth padded">
+                <label for="umid">UM ID</label>
+                <input id="umid" type="text" name="umid">
+            </div>
+        </div>
 
-    <label for="firstname">First Name</label>
-    <input type="text" name="firstname" />
+        <div class="row">
+            <div class="one third padded">
+                <label for="lastname">Last Name</label>
+                <input id="lastname" type="text" name="lastname">
+            </div>
 
-    <button type="submit">Submit</button>
+            <div class="one third padded">
+                <label for="firstname">First Name</label>
+                <input id="firstname" type="text" name="firstname">
+            </div>
+
+            <div class="one sixth padded">
+                <label for="middlename">Middle Name</label>
+                <input id="middlename" type="text" name="middlename">
+            </div>
+
+            <div class="one sixth padded">
+                <label for="suffix">Suffix</label>
+                <input id="suffix" type="text" name="suffix">
+            </div>
+        </div>
+
+
+            <div class="one whole padded">
+                <button type="submit" class="blue button">Submit</button>
+            </div>
+
+        </fieldset>
+
+        </div>
 
 </form>
+</div>
