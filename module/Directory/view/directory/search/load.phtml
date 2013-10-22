@@ -1,5 +1,3 @@
-<h3>Search Results</h3>
-
 <!-- <table class="table">
 <?php foreach ($person as $p) : ?>
     <tr>
@@ -11,7 +9,28 @@
 <?php endforeach; ?>
 </table> -->
 
-<p><?php echo $this->escapeHtml($person->firstname);?></p>
-<p><?php echo $this->escapeHtml($person->lastname);?></p>
-<p><?php echo $this->escapeHtml($person->umid);?></p>
-<p><?php echo $this->escapeHtml($person->uniqname);?></p>
+<div class="row">
+    <div class="one third padded">
+        <form>
+            <fieldset>
+                <legend>Search Results</legend>
+            <div class="one half padded">
+                <label for="firstname">First Name</label>
+                <input readonly id="firstname" value="<?php echo $this->escapeHtml($person->firstname);?>">
+            </div>
+            <div class="one half padded">
+                <label for="lastname">Last Name</label>
+                <input readonly id="lastname" value="<?php echo $this->escapeHtml($person->lastname);?>">
+            </div>
+            <div class="one half padded">
+                <label for="umid">UM ID</label>
+                <input readonly id="umid" value="<?php echo $this->escapeHtml($person->umid);?>">
+            </div>
+            <div class="one half padded">
+                <label for="uniqname">Uniqname</label>
+                <input readonly id="uniqname" value="<?php echo $this->escapeHtml($person->uniqname);?>">
+            </div>
+        </fieldset>
+        </form>
+    </div>
+</div>
