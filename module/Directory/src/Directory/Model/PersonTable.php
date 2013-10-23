@@ -19,31 +19,46 @@ class PersonTable
         return $resultSet;
     }
 
-    public function search($firstname, $lastname)
+    public function search($firstname, $lastname, $umid, $uniqname)
     {
+        $sqlStatementCreated = false;
         $rowset = $this->tableGateway->select(function (Select $select) use($firstname, $lastname, $umid, $uniqname) {
 
-            if (!empty($firstname)) {
-               $select->where->like('firstname', $firstname.'%');
-            }
+        if (!empty($firstname)) {
+            $sqlStatementCreated = true;
+            $select->where->like('firstname', $firstname.'%');
+        }
 
-            if (!empty($lastname)) {
+        if (!empty($lastname)) {
+
+            if ($sqlStatementCreated) {
                 $select->where->OR;
+            } else {
+                $sqlStatementCreated = true;
                 $select->where->like('lastname', $lastname.'%');
             }
+        }
 
-            if (!empty($umid)) {
+        if (!empty($umid)) {
+            if ($sqlStatementCreated) {
                 $select->where->OR;
+            } else {
+                $sqlStatementCreated = true;
                 $select->where->like('umid', '%'.$umid.'%');
             }
+        }
 
-            if (!empty($uniqname)) {
+        if (!empty($uniqname)) {
+            if ($sqlStatementCreated) {
                 $select->where->OR;
+            } else {
+                $sqlStatementCreated = true;
                 $select->where->like('uniqname', $uniqname.'%');
             }
+        }
 
-            $select->limit(1);
-        });
+        $select->limit(1);
+    });
         $row = $rowset->current();
         if (!$row) {
             throw new \Exception("Could not find row");
