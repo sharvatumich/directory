@@ -7,7 +7,7 @@ return array(
         //     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
         // ),
         'driver'            => 'OCI8',
-        'connection_string' => 'jdbc:oracle:thin:@oratest.engin.umich.edu:1521:engin',
+        'connection_string' => 'oratest.engin.umich.edu:1521:engin',
         'character_set'     => 'AL32UTF8',
     ),
     'service_manager' => array(

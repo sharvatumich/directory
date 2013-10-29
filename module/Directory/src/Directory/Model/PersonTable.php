@@ -26,7 +26,7 @@ class PersonTable
 
         if (!empty($firstname)) {
             $sqlStatementCreated = true;
-            $select->where->like('firstname', $firstname.'%');
+            $select->where->like('FNAME', $firstname.'%');
         }
 
         if (!empty($lastname)) {
@@ -35,7 +35,7 @@ class PersonTable
                 $select->where->OR;
             } else {
                 $sqlStatementCreated = true;
-                $select->where->like('lastname', $lastname.'%');
+                $select->where->like('LNAME', $lastname.'%');
             }
         }
 
@@ -44,7 +44,7 @@ class PersonTable
                 $select->where->OR;
             } else {
                 $sqlStatementCreated = true;
-                $select->where->like('umid', '%'.$umid.'%');
+                $select->where->like('UMID', '%'.$umid.'%');
             }
         }
 
@@ -53,7 +53,7 @@ class PersonTable
                 $select->where->OR;
             } else {
                 $sqlStatementCreated = true;
-                $select->where->like('uniqname', $uniqname.'%');
+                $select->where->like('UNIQNAME', $uniqname.'%');
             }
         }
 
