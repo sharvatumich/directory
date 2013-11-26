@@ -26,16 +26,14 @@ class SearchController extends AbstractActionController
 
     public function loadAction()
     {
-        echo "VARIABLE: ";
-        echo getenv('DYLD_LIBRARY_PATH');
         $firstname = $this->getRequest()->getPost('firstname');
         $lastname = $this->getRequest()->getPost('lastname');
         $uniqname = $this->getRequest()->getPost('uniqname');
         $umid = $this->getRequest()->getPost('umid');
+        $middlename = $this->getRequest()->getPost('middlename');
+        $nickname = $this->getRequest()->getPost('nickname');
 
-        echo $firstname;
-
-         $person = $this->getPersonTable()->search($firstname, $lastname, $umid, $uniqname);
+         $person = $this->getPersonTable()->search($firstname, $lastname, $umid, $uniqname, $middlename, $nickname);
 
         return new ViewModel(array(
             'person' => $person,

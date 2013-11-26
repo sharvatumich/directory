@@ -19,14 +19,14 @@ class PersonTable
         return $resultSet;
     }
 
-    public function search($firstname, $lastname, $umid, $uniqname)
+    public function search($firstname, $lastname, $umid, $uniqname, $middlename, $nickname)
     {
-        $sqlStatementCreated = false;
-        $rowset = $this->tableGateway->select(function (Select $select) use($firstname, $lastname, $umid, $uniqname) {
+
+        $rowset = $this->tableGateway->select(function (Select $select) use($firstname, $lastname, $umid, $uniqname, $middlename, $nickname) {
+            $sqlStatementCreated = false;
 
         if (!empty($firstname)) {
             $sqlStatementCreated = true;
-            echo $firstname;
             $select->where->like('FNAME', $firstname.'%');
         }
 
@@ -55,6 +55,23 @@ class PersonTable
             } else {
                 $sqlStatementCreated = true;
                 $select->where->like('UNIQNAME', $uniqname.'%');
+            }
+        }
+
+        if (!empty($middlename)) {
+            if ($sqlStatementCreated) {
+                $select->where->OR;
+            } else {
+                $sqlStatementCreated = true;
+                $select->where->like('MNAME', $middlename.'%');
+            }
+        }
+        if (!empty($nickname)) {
+            if ($sqlStatementCreated) {
+                $select->where->OR;
+            } else {
+                $sqlStatementCreated = true;
+                $select->where->like('NICKNAME', $nickname.'%');
             }
         }
 
