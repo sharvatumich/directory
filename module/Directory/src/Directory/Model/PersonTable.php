@@ -26,6 +26,7 @@ class PersonTable
 
         if (!empty($firstname)) {
             $sqlStatementCreated = true;
+            echo $firstname;
             $select->where->like('FNAME', $firstname.'%');
         }
 
@@ -57,14 +58,17 @@ class PersonTable
             }
         }
 
-        $select->limit(1);
-    });
+            $select->limit(1);
+        });
+
         $row = $rowset->current();
         if (!$row) {
             throw new \Exception("Could not find row");
         }
         return $row;
+
     }
+
 
 
 }

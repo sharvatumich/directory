@@ -1,0 +1,915 @@
+###########################
+# CoE Oracle server aliases
+# Modified 1/4/2004 by lwk
+###########################
+db15 = 
+  (DESCRIPTION = 
+    (ADDRESS_LIST = 
+        (ADDRESS = 
+          (COMMUNITY = ENGIN.UMICH.EDU)
+          (PROTOCOL = TCP)
+          (HOST = db15.engin.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA = 
+      (SID = engin)
+    )
+  )
+oraprod = 
+  (DESCRIPTION = 
+    (ADDRESS_LIST = 
+        (ADDRESS = 
+          (COMMUNITY = ENGIN.UMICH.EDU)
+          (PROTOCOL = TCP)
+          (HOST = oraprod.engin.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA = 
+      (SID = engin)
+    )
+  )
+
+####################################################################
+# Server:  telugu.web.itd.umich.edu    Instances: TELUGU
+####################################################################
+DEV.WORLD =
+   (DESCRIPTION =
+     (ADDRESS_LIST =
+         (ADDRESS =
+           (COMMUNITY = tcp.world)
+           (PROTOCOL = TCP)
+           (HOST = telugu.web.itd.umich.edu)
+           (PORT = 1521)
+         )
+     )
+     (CONNECT_DATA =
+        (SID = TELUGU)
+        (GLOBAL_NAME = telugu.world)
+     )
+   )
+
+engin = 
+  (DESCRIPTION = 
+    (ADDRESS_LIST = 
+        (ADDRESS = 
+          (COMMUNITY = ENGIN.UMICH.EDU)
+          (PROTOCOL = TCP)
+          (HOST = oraprod.engin.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA = 
+      (SID = engin)
+    )
+  )
+caen = 
+  (DESCRIPTION = 
+    (ADDRESS_LIST = 
+        (ADDRESS = 
+          (COMMUNITY = ENGIN.UMICH.EDU)
+          (PROTOCOL = TCP)
+          (HOST = oraprod.engin.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA = 
+      (SID = engin)
+    )
+  )
+caen8 =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = ENGIN.UMICH.EDU)
+          (PROTOCOL = TCP)
+          (HOST = oraprod.engin.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+      (SID = engin)
+    )
+  )
+TEST = 
+  (DESCRIPTION = 
+    (ADDRESS_LIST = 
+        (ADDRESS = 
+          (COMMUNITY = ENGIN.UMICH.EDU)
+          (PROTOCOL = TCP)
+          (HOST = oratest.engin.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA = 
+      (SID = engin)
+    )
+  )
+ORATEST = 
+  (DESCRIPTION = 
+    (ADDRESS_LIST = 
+        (ADDRESS = 
+          (COMMUNITY = ENGIN.UMICH.EDU)
+          (PROTOCOL = TCP)
+          (HOST = oratest.engin.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA = 
+      (SID = engin)
+    )
+  )
+COURSEDB =
+  (DESCRIPTION =
+     (ADDRESS =
+        (PROTOCOL = TCP)
+        (HOST = forktail.dsc.umich.edu)
+        (PORT = 1521)
+     )
+     (CONNECT_DATA =
+        (SERVICE_NAME = COURSEDB.WORLD)
+     )
+   )
+muscle = 
+  (DESCRIPTION = 
+    (ADDRESS_LIST = 
+        (ADDRESS = 
+          (COMMUNITY = ENGIN.UMICH.EDU)
+          (PROTOCOL = TCP)
+          (HOST = forktail.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = COURSEDB.WORLD)
+    )
+  )
+
+pa02 = 
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = parrot.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pa02)
+       (GLOBAL_NAME = pa02.world)
+    )
+  )
+
+# DAP = 
+#   (DESCRIPTION = 
+#     (ADDRESS_LIST = 
+#         (ADDRESS = 
+#           (COMMUNITY = UIS.ITD.UMICH.EDU)
+#           (PROTOCOL = TCP)
+#           (HOST = waxwing.dsc.umich.edu)
+#           (PORT = 1521)
+#         )
+#     )
+#     (CONNECT_DATA = 
+#       (SID = pa01)
+#     )
+#   )
+####################################################################
+# SERVER:  PCID (formerly IDCard)  INSTANCE(S):  uisidc/pcid
+####################################################################
+uisidc =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = pcid.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = uisidc)
+       (GLOBAL_NAME = uisidc.world)
+    )
+  )
+pcid =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = pcid.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = uisidc)
+       (GLOBAL_NAME = uisidc.world)
+    )
+  )
+pcid_d =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = pcid.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = uisidc)
+       (GLOBAL_NAME = uisidc.world)
+       (SERVER = DEDICATED)
+    )
+  )
+
+####################################################################
+# Filename......: tnsnames.ora
+# Name..........: UM-ITD-OM-DSC Production Names
+# Version.......: 6.84
+# Date..........: November 4, 2004 dc
+# Latest Changes: Added tc24 (Imagenow 5.4) to Dunlin - dc
+# Note..........: SQL*Net aliases are listed in comments immediately
+#                 following instance names, separated by a slash.
+####################################################################
+# 
+### _______FOLLOWING ARE DSC PRODUCTION ORACLE SERVERS_______    ###
+# 
+####################################################################
+# SERVER:  Bobolink	INSTANCE(S):	pa04/heods
+####################################################################
+pa04.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = bobolink.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pa04)
+       (GLOBAL_NAME = pa04.world)
+    )
+  )
+heods.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = bobolink.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pa04)
+       (GLOBAL_NAME = pa04.world)
+    )
+  )
+####################################################################
+# SERVER:  Chickadee	INSTANCE(S):	pa03/finods,
+#                                   	tc07/finqa75
+####################################################################
+pa03.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = chickadee.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pa03)
+       (GLOBAL_NAME = pa03.world)
+    )
+  )
+finods.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = chickadee.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pa03)
+       (GLOBAL_NAME = pa03.world)
+    )
+  )
+tc07.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = chickadee.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = tc07)
+       (GLOBAL_NAME = tc07.world)
+    )
+  )
+finqa75.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = chickadee.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = tc07)
+       (GLOBAL_NAME = tc07.world)
+    )
+  )
+##################################################################
+# SERVER:  Killdeer	INSTANCE(S):  	pc04
+##################################################################
+pc04.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = killdeer.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc04)
+       (GLOBAL_NAME = pc04.world)
+    )
+  )
+##################################################################
+# SERVER:  Kingbird	INSTANCE(S):  	pc06/heprod
+##################################################################
+pc06.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = kingbird.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc06)
+       (GLOBAL_NAME = pc06.world)
+    )
+  )
+heprod.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = kingbird.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc06)
+       (GLOBAL_NAME = pc06.world)
+    )
+  )
+##################################################################
+# SERVER:  Myna	        INSTANCE(S):  	pc12
+##################################################################
+pc12.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = myna.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc12)
+       (GLOBAL_NAME = pc12.world)
+    )
+  )
+####################################################################
+# SERVER:  Nene         INSTANCE(S):    pc07, pc16
+####################################################################
+pc07.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = nene.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc07)
+       (GLOBAL_NAME = pc07.world)
+    )
+  )
+pc16.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = nene.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc16)
+       (GLOBAL_NAME = pc16.world)
+    )
+  )
+##################################################################
+# SERVER:  Nighthawk	INSTANCE(S):  	pc03/finprod
+##################################################################
+pc03.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = nighthawk.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc03)
+       (GLOBAL_NAME = pc03.world)
+    )
+  )
+finprod.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = nighthawk.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc03)
+       (GLOBAL_NAME = pc03.world)
+    )
+  )
+#######################################################################
+# SERVER:  Parrot	INSTANCE(S):	pa02/datawhse/finrpt
+#######################################################################
+pa02.world =
+  (DESCRIPTION =
+   (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = parrot.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pa02)
+       (GLOBAL_NAME = pa02.world)
+    )
+  )
+finrpt.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = parrot.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pa02)
+       (GLOBAL_NAME = pa02.world)
+    )
+  )
+datawhse.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = parrot.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pa02)
+       (GLOBAL_NAME = pa02.world)
+    )
+  )
+#######################################################################
+# SERVER:  Ruff 	INSTANCE(S):  	pc18/Stat repository
+#                                       pc19/HESTATP1 HE Staging I
+#                                       pc20/HESTATP2 HE Staging II
+#                                       pc21/HESTATP3 HE Staging III
+#                                       pc22/FNSTATP1 FIN Staging I
+#                                       pc23/FNSTATP2 FIN Staging II
+#######################################################################
+pc18.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = ruff.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc18)
+       (GLOBAL_NAME = pc18.world)
+    )
+  )
+hestatp1.world =
+  (DESCRIPTION =
+   (ADDRESS_LIST =
+      (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = ruff.dsc.umich.edu)
+          (PORT = 1521)
+       )
+    )
+    (CONNECT_DATA =
+       (SID = pc19)
+       (GLOBAL_NAME = pc19.world)
+    )
+  )
+pc19.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = ruff.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc19)
+       (GLOBAL_NAME = pc19.world)
+    )
+  )
+hestatp2.world =
+  (DESCRIPTION =
+   (ADDRESS_LIST =
+      (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = ruff.dsc.umich.edu)
+          (PORT = 1521)
+       )
+    )
+    (CONNECT_DATA =
+       (SID = pc20)
+       (GLOBAL_NAME = pc20.world)
+    )
+  )
+pc20.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = ruff.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc20)
+       (GLOBAL_NAME = pc20.world)
+    )
+  )
+hestatp3.world =
+  (DESCRIPTION =
+   (ADDRESS_LIST =
+      (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = ruff.dsc.umich.edu)
+          (PORT = 1521)
+       )
+    )
+    (CONNECT_DATA =
+       (SID = pc21)
+       (GLOBAL_NAME = pc21.world)
+    )
+  )
+pc21.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = ruff.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc21)
+       (GLOBAL_NAME = pc21.world)
+    )
+  )
+fnstatp1.world =
+  (DESCRIPTION =
+   (ADDRESS_LIST =
+      (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = ruff.dsc.umich.edu)
+          (PORT = 1521)
+       )
+    )
+    (CONNECT_DATA =
+       (SID = pc22)
+       (GLOBAL_NAME = pc22.world)
+    )
+  )
+pc22.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = ruff.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc22)
+       (GLOBAL_NAME = pc22.world)
+    )
+  )
+fnstatp2.world =
+  (DESCRIPTION =
+   (ADDRESS_LIST =
+      (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = ruff.dsc.umich.edu)
+          (PORT = 1521)
+       )
+    )
+    (CONNECT_DATA =
+       (SID = pc23)
+       (GLOBAL_NAME = pc23.world)
+    )
+  )
+pc23.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = ruff.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc23)
+       (GLOBAL_NAME = pc23.world)
+    )
+  )
+####################################################################
+# SERVER:  Tanager	INSTANCE(S):  	pc02, pc17
+####################################################################
+pc02.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = tanager.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc02)
+       (GLOBAL_NAME = pc02.world)
+    )
+  )
+pc17.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = tanager.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc17)
+       (GLOBAL_NAME = pc17.world)
+    )
+  )
+####################################################################
+# SERVER:  Waxwing	INSTANCE(S):  	pa01, pc01
+####################################################################
+pa01.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = waxwing.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pa01)
+       (GLOBAL_NAME = pa01.world)
+    )
+  )
+pc01.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = waxwing.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc01)
+       (GLOBAL_NAME = pc01.world)
+    )
+  )
+##################################################################
+# SERVER:  Willet   	INSTANCE(S):  	pc15				    	
+##################################################################
+pc15.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = willet.dsc.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pc15)
+       (GLOBAL_NAME = pc15.world)
+    )
+  )
+####################################################################
+# 
+###    _______FOLLOWING ARE NON-DSC ORACLE SERVERS_______        ###
+# 
+####################################################################
+# SERVER:  FMIS new server (Plant Dept) INSTANCE(S): pe01.world
+####################################################################
+pe01.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST = pe01.bf.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pe01)
+       (GLOBAL_NAME = pe01.world)
+    )
+  )
+fmisnew.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+        (ADDRESS =
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (HOST =pe01.bf.umich.edu)
+          (PORT = 1521)
+        )
+    )
+    (CONNECT_DATA =
+       (SID = pe01)
+       (GLOBAL_NAME = pe01.world)
+    )
+  )  
+####################################################################
+# SERVER:  Kannada.web.itd INSTANCE(S): KANNADA (for eResearch)
+####################################################################
+kannada.world =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS =
+        (COMMUNITY = tcp.world)
+        (PROTOCOL = TCP)
+        (HOST = kannada.web.itd.umich.edu)
+        (PORT = 1521)
+      )
+    )
+    (CONNECT_DATA =
+      (SID = kannada)
+      (GLOBAL_NAME = kannada.world)
+    )
+  )
+####################################################################
+# SERVER:  s-lsa-db1	INSTANCE(S):  	pooh.world
+####################################################################
+pooh.world = 
+  (DESCRIPTION = 
+    (ADDRESS_LIST = 
+        (ADDRESS = 
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (Host = s-lsa-db1.admin.lsa.umich.edu)
+          (Port = 1521)
+        )
+        (ADDRESS = 
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (Host = s-lsa-db1.admin.lsa.umich.edu)
+          (Port = 1526)
+        )
+    )
+    (CONNECT_DATA = (SID = ORCL)
+    )
+  )
+clav.world = 
+  (DESCRIPTION = 
+    (ADDRESS_LIST = 
+        (ADDRESS = 
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (Host = clavicle.msis.med.umich.edu)
+          (Port = 1521)
+        )
+        (ADDRESS = 
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (Host = clavicle.msis.med.umich.edu)
+          (Port = 1526)
+        )
+    )
+    (CONNECT_DATA = (SID = clav)
+    )
+  )
+scap.world = 
+  (DESCRIPTION = 
+    (ADDRESS_LIST = 
+        (ADDRESS = 
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (Host = scapula.msis.med.umich.edu)
+          (Port = 1521)
+        )
+        (ADDRESS = 
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (Host = scapula.msis.med.umich.edu)
+          (Port = 1526)
+        )
+    )
+    (CONNECT_DATA = (SID = scap)
+    )
+  )
+bwoa.world = 
+  (DESCRIPTION = 
+    (ADDRESS_LIST = 
+        (ADDRESS = 
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (Host = hallucis.msis.med.umich.edu)
+          (Port = 1521)
+        )
+        (ADDRESS = 
+          (COMMUNITY = tcp.world)
+          (PROTOCOL = TCP)
+          (Host = hallucis.msis.med.umich.edu)
+          (Port = 1526)
+        )
+    )
+    (CONNECT_DATA = (SID = bwoa)
+    )
+  )
+#
+#################################
+### _______end of file_______ ###
+#################################

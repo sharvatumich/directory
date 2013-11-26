@@ -1,0 +1,13 @@
+###########
+# FILENAME: sqlnet.ora
+# TIME....: 94-08-10 08:12:53
+# NETWORK.: CAEN
+# NODE....: C_ENGIN.UMICH.EDU
+# SERVICE.: C_ENGIN.UMICH.EDU
+###########
+TRACE_LEVEL_CLIENT = OFF
+TRACE_FILE_CLIENT = sqlnet.trc
+TRACE_DIRECTORY_CLIENT = /tmp/
+# LOG_FILE_CLIENT = sqlnet.log
+# LOG_DIRECTORY_CLIENT = /tmp/
+
