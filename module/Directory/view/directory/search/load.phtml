@@ -9,36 +9,78 @@
 <?php endforeach; ?>
 </table>-->
 
-<div class="row">
-    <div class="one third padded">
-        <form>
+<div class="col-md-8">
+    <div class="well">
+        <form role="form">
             <fieldset>
                 <legend>Search Results</legend>
-            <div class="one half padded">
-                <label for="firstname">First Name</label>
-                <input readonly id="firstname" value="<?php echo $this->escapeHtml($person->FNAME);?>">
+
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="firstname">First Name</label>
+                        <input name="firstname" class="form-control" type="text" id="firstname" value="<?php echo $this->escapeHtml($person->FNAME);?>">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="lastname">Last Name</label>
+                        <input name="lastname" class="form-control" type="text" id="lastname" value="<?php echo $this->escapeHtml($person->LNAME);?>">
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="middlename">Middle Name</label>
+                        <input name="middlename" class="form-control" type="text" id="middlename" value="<?php echo $this->escapeHtml($person->MNAME);?>">
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="name_suffix">Name Suffix</label>
+                        <input name="name_suffix" class="form-control" type="text" id="name_suffix" value="<?php echo $this->escapeHtml($person->NAME_SUFFIX);?>">
+                    </div>
+                </div>
+
             </div>
-            <div class="one half padded">
-                <label for="lastname">Last Name</label>
-                <input readonly id="lastname" value="<?php echo $this->escapeHtml($person->LNAME);?>">
+
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="umid">UM ID</label>
+                        <input name="umid" class="form-control" type="text" id="umid" value="<?php echo $this->escapeHtml($person->UMID);?>">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="uniqname">Uniqname</label>
+                        <input name="uniqname" class="form-control" type="text" id="uniqname" value="<?php echo $this->escapeHtml($person->UNIQNAME);?>">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="caen_id">Caen ID</label>
+                        <input name="caen_id" class="form-control" type="text" id="caen_id" value="<?php echo $this->escapeHtml($person->CAEN_ID);?>">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="nickname">Nickname</label>
+                        <input name="nickname" class="form-control" type="text" id="nickname" value="<?php echo $this->escapeHtml($person->NICKNAME);?>">
+                    </div>
+                </div>
+
             </div>
-            <div class="one half padded">
-                <label for="umid">UM ID</label>
-                <input readonly id="umid" value="<?php echo $this->escapeHtml($person->UMID);?>">
-            </div>
-            <div class="one half padded">
-                <label for="uniqname">Uniqname</label>
-                <input readonly id="uniqname" value="<?php echo $this->escapeHtml($person->UNIQNAME);?>">
-            </div>
-            <div class="one half padded">
-                <label for="CAEN_ID">Caen ID</label>
-                <input readonly id="CAEN_ID" value="<?php echo $this->escapeHtml($person->CAEN_ID);?>">
-            </div>
-            <div class="one half padded">
-                <label for="MNAME">Middle Name</label>
-                <input readonly id="MNAME" value="<?php echo $this->escapeHtml($person->MNAME);?>">
-            </div>
-            <div class="one half padded">
+
+
+            <!-- <div class="one half padded">
                 <label for="CARDVERNUM">Card Version Number</label>
                 <input readonly id="CARDVERNUM" value="<?php echo $this->escapeHtml($person->CARDVERNUM);?>">
             </div>
@@ -65,17 +107,9 @@
             <div class="one half padded">
                 <label for="LAST_UPDATED_BY">Last Updated By</label>
                 <input readonly id="LAST_UPDATED_BY" value="<?php echo $this->escapeHtml($person->LAST_UPDATED_BY);?>">
-            </div>
-            <div class="one half padded">
-                <label for="NAME_SUFFIX">Name Suffix</label>
-                <input readonly id="NAME_SUFFIX" value="<?php echo $this->escapeHtml($person->NAME_SUFFIX);?>">
-            </div>
-            <div class="one half padded">
-                <label for="NICKNAME">Nickname</label>
-                <input readonly id="NICKNAME" value="<?php echo $this->escapeHtml($person->NICKNAME);?>">
-            </div>
+            </div> -->
 
-        </fieldset>
+            </fieldset>
         </form>
     </div>
 </div>
