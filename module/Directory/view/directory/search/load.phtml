@@ -94,6 +94,16 @@
                     </fieldset>
             </div>
 
+            <div class="tab-pane" id="addresses">
+                    <fieldset>
+                        <legend>Addresses</legend>
+                            <div class="row">
+                                <input name-"street" class="form-control" type="text" id="street" value="<?php echo $this->escapeHtml($person->CURRENT_STREET);?>">
+                                <input name-"zipcode" class="form-control" type="text" id="zipcode" value="<?php echo $this->escapeHtml($person->POSTAL_ZIP);?>">
+                            </div>
+                    </fieldset>
+            </div>
+
             <div class="tab-pane" id="phones">
                     <fieldset>
                         <legend>Phone Numbers</legend>

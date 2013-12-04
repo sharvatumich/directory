@@ -34,6 +34,8 @@ class PersonTable
         $rowset = $this->tableGateway->select(function (Select $select) use($firstname, $lastname, $umid, $uniqname, $middlename, $nickname) {
             $sqlStatementCreated = false;
             $select->join('PHONE_LIST', 'PHONE_LIST.CAEN_ID = PEOPLE.CAEN_ID');
+            $select->join('ADDRESSES', 'ADDRESSES.CAEN_ID = PEOPLE.CAEN_ID');
+            $select->join('BLDG_LIST', 'BLDG_LIST.BLDG_NO = ADDRESSES.OFFICE_SITE');
 
         if (!empty($firstname)) {
             $sqlStatementCreated = true;
