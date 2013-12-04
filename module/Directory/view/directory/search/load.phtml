@@ -11,105 +11,190 @@
 
 <div class="col-md-8">
     <div class="well">
-        <form role="form">
-            <fieldset>
-                <legend>Search Results</legend>
 
-            <div class="row">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#directory" data-toggle="tab">Directory</a></li>
+            <li><a href="#addresses" data-toggle="tab">Addresses</a></li>
+            <li><a href="#phones" data-toggle="tab">Phones</a></li>
+            <li><a href="#employeeInfo" data-toggle="tab">Employee Info</a></li>
+            <li><a href="#appointments" data-toggle="tab">Appointments</a></li>
+            <li><a href="#phoneList" data-toggle="tab">Phone List</a></li>
+        </ul>
 
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="firstname">First Name</label>
-                        <input name="firstname" class="form-control" type="text" id="firstname" value="<?php echo $this->escapeHtml($person->FNAME);?>">
-                    </div>
-                </div>
+        <div class="tab-content">
+            <div class="tab-pane active" id="directory">
 
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="lastname">Last Name</label>
-                        <input name="lastname" class="form-control" type="text" id="lastname" value="<?php echo $this->escapeHtml($person->LNAME);?>">
-                    </div>
-                </div>
+                <form role="form">
+                    <fieldset>
+                        <legend>Search Results</legend>
 
-                <div class="col-md-2">
-                    <div class="form-group">
-                        <label for="middlename">Middle Name</label>
-                        <input name="middlename" class="form-control" type="text" id="middlename" value="<?php echo $this->escapeHtml($person->MNAME);?>">
-                    </div>
-                </div>
+                        <div class="row">
 
-                <div class="col-md-2">
-                    <div class="form-group">
-                        <label for="name_suffix">Name Suffix</label>
-                        <input name="name_suffix" class="form-control" type="text" id="name_suffix" value="<?php echo $this->escapeHtml($person->NAME_SUFFIX);?>">
-                    </div>
-                </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="firstname">First Name</label>
+                                    <input name="firstname" class="form-control" type="text" id="firstname" value="<?php echo $this->escapeHtml($person->FNAME);?>">
+                                </div>
+                            </div>
 
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="lastname">Last Name</label>
+                                    <input name="lastname" class="form-control" type="text" id="lastname" value="<?php echo $this->escapeHtml($person->LNAME);?>">
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="middlename">Middle Name</label>
+                                    <input name="middlename" class="form-control" type="text" id="middlename" value="<?php echo $this->escapeHtml($person->MNAME);?>">
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="name_suffix">Name Suffix</label>
+                                    <input name="name_suffix" class="form-control" type="text" id="name_suffix" value="<?php echo $this->escapeHtml($person->NAME_SUFFIX);?>">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="umid">UM ID</label>
+                                    <input name="umid" class="form-control" type="text" id="umid" value="<?php echo $this->escapeHtml($person->UMID);?>">
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="uniqname">Uniqname</label>
+                                    <input name="uniqname" class="form-control" type="text" id="uniqname" value="<?php echo $this->escapeHtml($person->UNIQNAME);?>">
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="caen_id">Caen ID</label>
+                                    <input name="caen_id" class="form-control" type="text" id="caen_id" value="<?php echo $this->escapeHtml($person->CAEN_ID);?>">
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="nickname">Nickname</label>
+                                    <input name="nickname" class="form-control" type="text" id="nickname" value="<?php echo $this->escapeHtml($person->NICKNAME);?>">
+                                </div>
+                            </div>
+
+                        </div>
+                    </fieldset>
             </div>
 
-            <div class="row">
+            <div class="tab-pane" id="phones">
+                    <fieldset>
+                        <legend>Phone Numbers</legend>
 
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="umid">UM ID</label>
-                        <input name="umid" class="form-control" type="text" id="umid" value="<?php echo $this->escapeHtml($person->UMID);?>">
-                    </div>
-                </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>Phone Number</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label>Extension</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label>Phone Type</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Description</label>
+                            </div>
+                            <div class="col-md-1">
+                                <label>Restrict?</label>
+                            </div>
+                        </div>
 
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="uniqname">Uniqname</label>
-                        <input name="uniqname" class="form-control" type="text" id="uniqname" value="<?php echo $this->escapeHtml($person->UNIQNAME);?>">
-                    </div>
-                </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" id="areacode" name="areacode" placeholder="###" maxlength="3" value="<?php echo $this->escapeHtml($person->AREA_CODE);?>">
+                                </div>
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" id="prefix" name="prefix" placeholder="###" maxlength="3" value="<?php echo $this->escapeHtml($person->TEL_PREFIX);?>">
+                                </div>
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" id="number" name="number" placeholder="####" maxlength="4" value="<?php echo $this->escapeHtml($person->TEL_NUMBER);?>">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control" id="ext" name="ext" placeholder="ext." maxlength="8" value="<?php echo $this->escapeHtml($person->EXTENSION);?>">
+                                </div>
+                                <div class="col-md-2">
+                                    <select class="form-control">
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" id="description" name="description" value="<?php echo $this->escapeHtml($person->DESCRIPTION);?>">
+                                </div>
+                                <div class="col-md-1">
+                                    <label class="checkbox-inline">
+                                        <?php
+                                        if ($person->RESTRICTED == "Y")
+                                        {
+                                        ?>
+                                        <input type="checkbox" id="restrict" value="Y" CHECKED>
+                                        <?php } else { ?>
+                                        <input type="checkbox" id="restrict" value="Y">
+                                        <?php } ?>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="caen_id">Caen ID</label>
-                        <input name="caen_id" class="form-control" type="text" id="caen_id" value="<?php echo $this->escapeHtml($person->CAEN_ID);?>">
-                    </div>
-                </div>
+                    </fieldset>
 
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="nickname">Nickname</label>
-                        <input name="nickname" class="form-control" type="text" id="nickname" value="<?php echo $this->escapeHtml($person->NICKNAME);?>">
-                    </div>
-                </div>
-
+                </form>
             </div>
+        </div>
 
-
-            <!-- <div class="one half padded">
-                <label for="CARDVERNUM">Card Version Number</label>
-                <input readonly id="CARDVERNUM" value="<?php echo $this->escapeHtml($person->CARDVERNUM);?>">
-            </div>
-            <div class="one half padded">
-                <label for="OVERWRITABLE">Overwriteable?</label>
-                <input readonly id="OVERWRITABLE" value="<?php echo $this->escapeHtml($person->OVERWRITABLE);?>">
-            </div>
-            <div class="one half padded">
-                <label for="SECURITY_FLAG">Security Flag</label>
-                <input readonly id="SECURITY_FLAG" value="<?php echo $this->escapeHtml($person->SECURITY_FLAG);?>">
-            </div>
-            <div class="one half padded">
-                <label for="DATE_CREATED">Date Created</label>
-                <input readonly id="DATE_CREATED" value="<?php echo $this->escapeHtml($person->DATE_CREATED);?>">
-            </div>
-            <div class="one half padded">
-                <label for="CREATED_BY">Created By</label>
-                <input readonly id="CREATED_BY" value="<?php echo $this->escapeHtml($person->CREATED_BY);?>">
-            </div>
-            <div class="one half padded">
-                <label for="LAST_UPDATE">Last Update</label>
-                <input readonly id="LAST_UPDATE" value="<?php echo $this->escapeHtml($person->LAST_UPDATE);?>">
-            </div>
-            <div class="one half padded">
-                <label for="LAST_UPDATED_BY">Last Updated By</label>
-                <input readonly id="LAST_UPDATED_BY" value="<?php echo $this->escapeHtml($person->LAST_UPDATED_BY);?>">
-            </div> -->
-
-            </fieldset>
-        </form>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="one half padded">
+    <label for="CARDVERNUM">Card Version Number</label>
+    <input readonly id="CARDVERNUM" value="<?php echo $this->escapeHtml($person->CARDVERNUM);?>">
+</div>
+<div class="one half padded">
+    <label for="OVERWRITABLE">Overwriteable?</label>
+    <input readonly id="OVERWRITABLE" value="<?php echo $this->escapeHtml($person->OVERWRITABLE);?>">
+</div>
+<div class="one half padded">
+    <label for="SECURITY_FLAG">Security Flag</label>
+    <input readonly id="SECURITY_FLAG" value="<?php echo $this->escapeHtml($person->SECURITY_FLAG);?>">
+</div>
+<div class="one half padded">
+    <label for="DATE_CREATED">Date Created</label>
+    <input readonly id="DATE_CREATED" value="<?php echo $this->escapeHtml($person->DATE_CREATED);?>">
+</div>
+<div class="one half padded">
+    <label for="CREATED_BY">Created By</label>
+    <input readonly id="CREATED_BY" value="<?php echo $this->escapeHtml($person->CREATED_BY);?>">
+</div>
+<div class="one half padded">
+    <label for="LAST_UPDATE">Last Update</label>
+    <input readonly id="LAST_UPDATE" value="<?php echo $this->escapeHtml($person->LAST_UPDATE);?>">
+</div>
+<div class="one half padded">
+    <label for="LAST_UPDATED_BY">Last Updated By</label>
+    <input readonly id="LAST_UPDATED_BY" value="<?php echo $this->escapeHtml($person->LAST_UPDATED_BY);?>">
+</div> -->

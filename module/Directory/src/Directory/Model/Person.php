@@ -19,6 +19,13 @@ class Person
     public $LAST_UPDATED_BY;
     public $NAME_SUFFIX;
     public $NICKNAME;
+    public $AREA_CODE;
+    public $TEL_PREFIX;
+    public $TEL_NUMBER;
+    public $TYPE;
+    public $DESCRIPTION;
+    public $RESTRICTED;
+    public $EXTENSION;
 
 
     public function exchangeArray($data)
@@ -39,5 +46,13 @@ class Person
         $this->LAST_UPDATED_BY  = (!empty($data['LAST_UPDATED_BY'])) ? $data['LAST_UPDATED_BY'] : null;
         $this->NAME_SUFFIX      = (!empty($data['NAME_SUFFIX'])) ? $data['NAME_SUFFIX'] : null;
         $this->NICKNAME         = (!empty($data['NICKNAME'])) ? $data['NICKNAME'] : null;
+        $this->AREA_CODE        = (!empty($data['AREA_CODE'])) ? $data['AREA_CODE'] : null;
+        $this->TEL_PREFIX       = (!empty($data['TEL_PREFIX'])) ? $data['TEL_PREFIX'] : null;
+        $this->TEL_NUMBER       = (!empty($data['TEL_NUMBER'])) ? $data['TEL_NUMBER'] : null;
+        $this->TYPE             = (!empty($data['TYPE'])) ? $data['TYPE'] : null;
+        $this->DESCRIPTION      = (!empty($data['DESCRIPTION'])) ? $data['DESCRIPTION'] : null;
+        $this->RESTRICTED       = (!empty($data['RESTRICTED'])) ? $data['RESTRICTED'] : null;
+        $this->EXTENSION        = (!empty($data['EXTENSION'])) ? $data['EXTENSION'] : null;
+
     }
 }

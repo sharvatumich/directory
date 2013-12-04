@@ -40,6 +40,17 @@ class Module
                     $resultSetPrototype->setArrayObjectPrototype(new Person());
                     return new TableGateway('PEOPLE', $dbAdapter, null, $resultSetPrototype);
                 },
+                'Directory\Model\PhoneTable' => function($sm) {
+                    $tableGateway = $sm->get('PhoneTableGateway');
+                    $table = new PhoneTable($tableGateway);
+                    return $table;
+                },
+                'PhoneTableGateway' => function($sm) {
+                    $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+                    $resultSetPrototype = new ResultSet();
+                    $resultSetPrototype->setArrayObjectPrototype(new Phone());
+                    return new TableGateway('PHONE_LIST', $dbAdapter, null, $resultSetPrototype);
+                },
                 ),
             );
     }

@@ -15,8 +15,17 @@ class PersonTable
 
     public function fetchAll()
     {
-        $resultSet = $this->tableGateway->select();
-        return $resultSet;
+        $sqlSelect = $this->tableGateway->getSql()->select();
+        $sqlSelect->columns(array('CAEN_ID', 'STATUS', 'LNAME', 'FNAME', 'MNAME', 'UMID', 'UNIQNAME', 'NICKNAME'));
+        $sqlSelect->join('PHONE_LIST', 'PHONE_LIST.CAEN_ID = PEOPLE.CAEN_ID');
+
+        $resultSet = $this->tableGateway->selectWith($sqlSelect);
+
+        $row = $resultSet->current();
+        if (!$row) {
+            throw new \Exception("Could not find row");
+        }
+        return $row;
     }
 
     public function search($firstname, $lastname, $umid, $uniqname, $middlename, $nickname)
@@ -24,6 +33,7 @@ class PersonTable
 
         $rowset = $this->tableGateway->select(function (Select $select) use($firstname, $lastname, $umid, $uniqname, $middlename, $nickname) {
             $sqlStatementCreated = false;
+            $select->join('PHONE_LIST', 'PHONE_LIST.CAEN_ID = PEOPLE.CAEN_ID');
 
         if (!empty($firstname)) {
             $sqlStatementCreated = true;
@@ -75,7 +85,6 @@ class PersonTable
             }
         }
 
-            $select->limit(1);
         });
 
         $row = $rowset->current();
