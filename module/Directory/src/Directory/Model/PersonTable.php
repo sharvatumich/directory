@@ -15,6 +15,14 @@ class PersonTable
 
     public function loadPhoneType()
     {
+        $sqlSelect = $this->tableGateway->getSql()->select();
+        $sqlSelect->from('PHONE_TYPES');
+        $sqlSelect->columns(array('PHONE_TYPE_ID'));
+
+        $resultSet = $this->tableGateway->selectWith($sqlSelect);
+
+        return $resultSet->toArray();
+
 
     }
 

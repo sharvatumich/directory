@@ -3,6 +3,8 @@ namespace Directory;
 
 use Directory\Model\Person;
 use Directory\Model\PersonTable;
+use Directory\Model\Phone;
+use Directory\Model\PhoneTable;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 

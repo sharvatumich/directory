@@ -7,6 +7,7 @@ use Zend\View\Model\ViewModel;
 class SearchController extends AbstractActionController
 {
     protected $personTable;
+    protected $phoneTable;
 
     public function getPersonTable()
     {
@@ -17,6 +18,17 @@ class SearchController extends AbstractActionController
         }
 
         return $this->personTable;
+    }
+
+    public function getPhoneTable()
+    {
+        if(!$this->phoneTable)
+        {
+            $sm = $this->getServiceLocator();
+            $this->phoneTable = $sm->get('Directory\Model\PhoneTable');
+        }
+
+        return $this->phoneTable;
     }
     public function indexAction()
     {
@@ -33,14 +45,24 @@ class SearchController extends AbstractActionController
         $middlename = $this->getRequest()->getPost('middlename');
         $nickname = $this->getRequest()->getPost('nickname');
 
+        $caenid = $this->getRequest()->getPost('caenid');
+
         $zipcode = $this->getRequest()->getPost('zipcode');
         $currentStreet = $this->getRequest()->getPost('currentStreet');
 
+        $areacode = $this->getRequest()->getPost('areacode');
+
         $person = $this->getPersonTable()->search($firstname, $lastname, $umid, $uniqname, $middlename, $nickname, $zipcode, $currentStreet);
+
+        $phone = $this->getPhoneTable()->search($areacode);
         //$person = $this->getPersonTable()->fetchAll();
+
+        //$phoneTypes = $this->getPersonTable()->loadPhoneType();
+
 
         return new ViewModel(array(
             'person' => $person,
+            'phone' => $phone,
             ));
 
         // return new ViewModel(array(
