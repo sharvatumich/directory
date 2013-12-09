@@ -13,6 +13,11 @@ class PersonTable
         $this->tableGateway = $tableGateway;
     }
 
+    public function loadPhoneType()
+    {
+
+    }
+
     public function fetchAll()
     {
         $sqlSelect = $this->tableGateway->getSql()->select();
@@ -28,10 +33,10 @@ class PersonTable
         return $row;
     }
 
-    public function search($firstname, $lastname, $umid, $uniqname, $middlename, $nickname)
+    public function search($firstname, $lastname, $umid, $uniqname, $middlename, $nickname, $zipcode, $currentStreet)
     {
 
-        $rowset = $this->tableGateway->select(function (Select $select) use($firstname, $lastname, $umid, $uniqname, $middlename, $nickname) {
+        $rowset = $this->tableGateway->select(function (Select $select) use($firstname, $lastname, $umid, $uniqname, $middlename, $nickname, $zipcode, $currentStreet) {
             $sqlStatementCreated = false;
             $select->join('PHONE_LIST', 'PHONE_LIST.CAEN_ID = PEOPLE.CAEN_ID');
             $select->join('ADDRESSES', 'ADDRESSES.CAEN_ID = PEOPLE.CAEN_ID');
@@ -84,6 +89,22 @@ class PersonTable
             } else {
                 $sqlStatementCreated = true;
                 $select->where->like('NICKNAME', $nickname.'%');
+            }
+        }
+        if (!empty($zipcode)) {
+            if ($sqlStatementCreated) {
+                $select->where->OR;
+            } else {
+                $sqlStatementCreated = true;
+                $select->where->like('POSTAL_ZIPCODE', $zipcode.'%');
+            }
+        }
+        if (!empty($currentStreet)) {
+            if ($sqlStatementCreated) {
+                $select->where->OR;
+            } else {
+                $sqlStatementCreated = true;
+                $select->where->like('CURRENT_STREET', $currentStreet.'%');
             }
         }
 
