@@ -27,7 +27,7 @@ class Person
     public $RESTRICTED;
     public $EXTENSION;
     public $CURRENT_STREET;
-    public $POSTAL_ZIP;
+    public $CURRENT_POSTAL_CODE;
 
 
     public function exchangeArray($data)
@@ -56,7 +56,7 @@ class Person
         $this->RESTRICTED       = (!empty($data['RESTRICTED'])) ? $data['RESTRICTED'] : null;
         $this->EXTENSION        = (!empty($data['EXTENSION'])) ? $data['EXTENSION'] : null;
         $this->CURRENT_STREET   = (!empty($data['CURRENT_STREET'])) ? $data['CURRENT_STREET'] : null;
-        $this->POSTAL_ZIP       = (!empty($data['POSTAL_ZIP'])) ? $data['POSTAL_ZIP'] : null;
+        $this->CURRENT_POSTAL_CODE       = (!empty($data['CURRENT_POSTAL_CODE'])) ? $data['CURRENT_POSTAL_CODE'] : null;
 
 
     }

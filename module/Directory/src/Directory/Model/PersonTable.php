@@ -104,7 +104,7 @@ class PersonTable
                 $select->where->OR;
             } else {
                 $sqlStatementCreated = true;
-                $select->where->like('POSTAL_ZIPCODE', $zipcode.'%');
+                $select->where->like('CURRENT_POSTAL_CODE', $zipcode.'%');
             }
         }
         if (!empty($currentStreet)) {

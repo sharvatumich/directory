@@ -13,12 +13,35 @@ class PhoneTable
         $this->tableGateway = $tableGateway;
     }
 
-    public function search($areacode)
+    public function search($areacode, $prefix, $number)
     {
-        $rowset = $this->tableGateway->select(function (Select $select) use($areacode) {
+        $rowset = $this->tableGateway->select(function (Select $select) use($areacode, $prefix, $number) {
+            $sqlStateCreated = false;
+
             if (!empty($areacode)) {
+                $sqlStateCreated = true;
                 $select->where->like('AREA_CODE', $areacode);
             }
+
+            if (!empty($prefix)) {
+                if ($sqlStateCreated) {
+                    $select->where->OR;
+                } else {
+                    $sqlStateCreated = true;
+                    $select->where->like('TEL_PREFIX', $prefix);
+                }
+            }
+
+            if (!empty($number)) {
+                if ($sqlStateCreated) {
+                    $select->where->OR;
+                } else {
+                    $sqlStateCreated = true;
+                    $select->where->like('TEL_NUMBER', $number);
+                }
+            }
+
+
         });
 
         $row = $rowset->current();

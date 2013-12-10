@@ -51,10 +51,12 @@ class SearchController extends AbstractActionController
         $currentStreet = $this->getRequest()->getPost('currentStreet');
 
         $areacode = $this->getRequest()->getPost('areacode');
+        $prefix = $this->getRequest()->getPost('prefix');
+        $number = $this->getRequest()->getPost('number');
 
         $person = $this->getPersonTable()->search($firstname, $lastname, $umid, $uniqname, $middlename, $nickname, $zipcode, $currentStreet);
 
-        $phone = $this->getPhoneTable()->search($areacode);
+        $phone = $this->getPhoneTable()->search($areacode, $prefix, $number);
         //$person = $this->getPersonTable()->fetchAll();
 
         //$phoneTypes = $this->getPersonTable()->loadPhoneType();

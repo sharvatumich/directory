@@ -101,20 +101,92 @@
 
 
                     </div>
+
                     <div class="tab-pane" id="addresses">
                         <fieldset>
                             <legend>Addresses</legend>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label for="zipcode">ZipCode</label>
-                                    <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="ZipCode">
 
-                                    <label for="currentStreet">Current Street</label>
-                                    <input type="text" class="form-control" id="currentStreet" name="currentStreet" placeholder="Current Street">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="name_prefix">Mr./Mrs./Ms.</label>
+                                        <select class="form-control" name="name_prefix">
+                                            <option>Mr.</option>
+                                            <option>Mrs.</option>
+                                            <option>Ms.</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="title">Title</label>
+                                        <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="addr1">Line 1</label>
+                                        <input type="text" class="form-control" id="addr1" name="addr1">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="street">Street</label>
+                                        <input type="text" class="form-control" id="street" name="street" placeholder="Street">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="city">City</label>
+                                        <input type="text" class="form-control" id="city" name="city" placeholder="City">
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label for="state">State</label>
+                                        <input type="text" class="form-control" id="state" name="state">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="zipcode">ZipCode</label>
+                                        <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="#####">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="plusfour">Plus Four</label>
+                                        <input type="text" class="form-control" id="plusfour" name="plusfour" placeholder="####">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="country">Country</label>
+                                        <input type="text" class="form-control" id="country" name="country" placeholder="Country">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-info">Submit <span class="glyphicon glyphicon-search"></span></button>
                         </fieldset>
                     </div>
+
+
                     <div class="tab-pane" id="phones">
                         <fieldset>
                             <legend>Phone Numbers</legend>
@@ -138,27 +210,39 @@
                             </div>
 
                             <div class="row">
-                                <div class="form-group">
-                                    <div class="col-md-1">
+                                <div class="col-md-1">
+                                    <div class="form-group">
                                         <input type="text" class="form-control" id="areacode" name="areacode" placeholder="###" maxlength="3">
                                     </div>
-                                    <div class="col-md-1">
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
                                         <input type="text" class="form-control" id="prefix" name="prefix" placeholder="###" maxlength="3">
                                     </div>
-                                    <div class="col-md-1">
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
                                         <input type="text" class="form-control" id="number" name="number" placeholder="####" maxlength="4">
                                     </div>
-                                    <div class="col-md-2">
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
                                         <input type="text" class="form-control" id="ext" name="ext" placeholder="ext." maxlength="8">
                                     </div>
-                                    <div class="col-md-2">
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
                                         <select class="form-control">
                                         </select>
                                     </div>
-                                    <div class="col-md-4">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
                                         <input type="text" class="form-control" id="description" name="description">
                                     </div>
-                                    <div class="col-md-1">
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
                                         <label class="checkbox-inline">
                                             <input type="checkbox" id="restrict" value="y">
                                         </label>
