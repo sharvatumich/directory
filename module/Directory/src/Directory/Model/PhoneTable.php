@@ -16,6 +16,7 @@ class PhoneTable
     public function search($areacode, $prefix, $number)
     {
         $rowset = $this->tableGateway->select(function (Select $select) use($areacode, $prefix, $number) {
+            $select->join('PEOPLE', 'PHONE_LIST.CAEN_ID = PEOPLE.CAEN_ID');
             $sqlStateCreated = false;
 
             if (!empty($areacode)) {

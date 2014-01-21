@@ -12,7 +12,7 @@ class Phone
     public $DESCRIPTION;
     public $EXTENSION;
 
-    public function exchangeArray($data)
+    public function exchangeArray($data) //fills properties for class with data from db (or null if db left empty)
     {
         $this->AREA_CODE        = (!empty($data['AREA_CODE'])) ? $data['AREA_CODE'] : null;
         $this->TEL_PREFIX       = (!empty($data['TEL_PREFIX'])) ? $data['TEL_PREFIX'] : null;

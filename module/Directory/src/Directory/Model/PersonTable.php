@@ -41,14 +41,14 @@ class PersonTable
         return $row;
     }
 
-    public function search($firstname, $lastname, $umid, $uniqname, $middlename, $nickname, $zipcode, $currentStreet)
+    public function search($firstname, $lastname, $umid, $uniqname, $middlename, $nickname, $caenid)
     {
 
-        $rowset = $this->tableGateway->select(function (Select $select) use($firstname, $lastname, $umid, $uniqname, $middlename, $nickname, $zipcode, $currentStreet) {
+        $rowset = $this->tableGateway->select(function (Select $select) use($firstname, $lastname, $umid, $uniqname, $middlename, $nickname, $caenid) {
             $sqlStatementCreated = false;
-            $select->join('PHONE_LIST', 'PHONE_LIST.CAEN_ID = PEOPLE.CAEN_ID');
-            $select->join('ADDRESSES', 'ADDRESSES.CAEN_ID = PEOPLE.CAEN_ID');
-            $select->join('BLDG_LIST', 'BLDG_LIST.BLDG_NO = ADDRESSES.OFFICE_SITE');
+            //$select->join('PHONE_LIST', 'PHONE_LIST.CAEN_ID = PEOPLE.CAEN_ID');
+            //$select->join('ADDRESSES', 'ADDRESSES.CAEN_ID = PEOPLE.CAEN_ID');
+            //$select->join('BLDG_LIST', 'BLDG_LIST.BLDG_NO = ADDRESSES.OFFICE_SITE');
 
         if (!empty($firstname)) {
             $sqlStatementCreated = true;
@@ -99,20 +99,13 @@ class PersonTable
                 $select->where->like('NICKNAME', $nickname.'%');
             }
         }
-        if (!empty($zipcode)) {
+
+        if (!empty($caenid)) {
             if ($sqlStatementCreated) {
                 $select->where->OR;
             } else {
                 $sqlStatementCreated = true;
-                $select->where->like('CURRENT_POSTAL_CODE', $zipcode.'%');
-            }
-        }
-        if (!empty($currentStreet)) {
-            if ($sqlStatementCreated) {
-                $select->where->OR;
-            } else {
-                $sqlStatementCreated = true;
-                $select->where->like('CURRENT_STREET', $currentStreet.'%');
+                $select->where->like('CAEN_ID', $caenid.'%');
             }
         }
 
