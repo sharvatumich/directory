@@ -3,6 +3,11 @@ namespace Directory\Model;
 
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Db\Sql\Select;
+use Zend\Db\Adapter\Driver\ResultInterface;
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Paginator\Adapter\DbSelect;
+use Zend\Paginator\Paginator;
+use Directory\Adapter\MySelect;
 
 class PersonTable
 {
@@ -13,38 +18,30 @@ class PersonTable
         $this->tableGateway = $tableGateway;
     }
 
-    public function loadPhoneType()
+    public function fetchAll($paginated=false)
     {
-        $sqlSelect = $this->tableGateway->getSql()->select();
-        $sqlSelect->from('PHONE_TYPES');
-        $sqlSelect->columns(array('PHONE_TYPE_ID'));
+        if ($paginated)
+        {
+            $select = new Select('PEOPLE');
+            $select->where(array('LNAME' => 'Tresnak'));
+            $resultSetPrototype = new ResultSet();
+            $resultSetPrototype->setArrayObjectPrototype(new Person());
 
-        $resultSet = $this->tableGateway->selectWith($sqlSelect);
-
-        return $resultSet->toArray();
-
-
-    }
-
-    public function fetchAll()
-    {
-        $sqlSelect = $this->tableGateway->getSql()->select();
-        $sqlSelect->columns(array('CAEN_ID', 'STATUS', 'LNAME', 'FNAME', 'MNAME', 'UMID', 'UNIQNAME', 'NICKNAME'));
-        $sqlSelect->join('PHONE_LIST', 'PHONE_LIST.CAEN_ID = PEOPLE.CAEN_ID');
-
-        $resultSet = $this->tableGateway->selectWith($sqlSelect);
-
-        $row = $resultSet->current();
-        if (!$row) {
-            throw new \Exception("Could not find row");
+            $paginatorAdapter = new MySelect(
+                $select, $this->tableGateway->getAdapter(), $resultSetPrototype);
+            $paginator = new Paginator($paginatorAdapter);
+            return $paginator;
         }
-        return $row;
+
+        $resultSet = $this->tableGateway->select();
+        return $resultSet;
     }
 
     public function search($firstname, $lastname, $umid, $uniqname, $middlename, $nickname, $caenid)
     {
+        (array)$resultSet = new ResultSet;
 
-        $rowset = $this->tableGateway->select(function (Select $select) use($firstname, $lastname, $umid, $uniqname, $middlename, $nickname, $caenid) {
+        $resultSet = $this->tableGateway->select(function (Select $select) use($firstname, $lastname, $umid, $uniqname, $middlename, $nickname, $caenid) {
             $sqlStatementCreated = false;
             //$select->join('PHONE_LIST', 'PHONE_LIST.CAEN_ID = PEOPLE.CAEN_ID');
             //$select->join('ADDRESSES', 'ADDRESSES.CAEN_ID = PEOPLE.CAEN_ID');
@@ -111,11 +108,19 @@ class PersonTable
 
         });
 
-        $row = $rowset->current();
-        if (!$row) {
-            throw new \Exception("Could not find row");
-        }
-        return $row;
+        // $row = $rowset->current();
+        // $peopleArray = $rowset->toArray();
+
+        // if (!$row) {
+        //     throw new \Exception("Could not find row");
+        // }
+        //return $row;
+        // foreach($resultSet as $row)
+        // {
+        //     $row->toArray();
+        // }
+
+        return $resultSet;
 
     }
 

@@ -1,14 +1,3 @@
- <!--<table class="table">
-<?php foreach ($person as $p) : ?>
-    <tr>
-        <td><?php echo $this->escapeHtml($p->FIRSTNAME);?></td>
-        <td><?php echo $this->escapeHtml($p->UMID);?></td>
-        <td><?php echo $this->escapeHtml($p->UNIQNAME);?></td>
-        <td>counter</td>
-    </tr>
-<?php endforeach; ?>
-</table>-->
-
 <div class="col-md-8">
     <div class="well">
 
@@ -20,6 +9,8 @@
             <li><a href="#appointments" data-toggle="tab">Appointments</a></li>
             <li><a href="#phoneList" data-toggle="tab">Phone List</a></li>
         </ul>
+
+        <?php foreach ($this->paginator as $p): ?>
 
         <div class="tab-content">
             <div class="tab-pane active" id="directory">
@@ -33,31 +24,30 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="firstname">First Name</label>
-                                    <input name="firstname" class="form-control" type="text" id="firstname" value="<?php echo $this->escapeHtml($person->FNAME);?>">
+                                    <input name="firstname" class="form-control" type="text" id="firstname" value="<?php echo $this->escapeHtml($p->FNAME);?>">
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="lastname">Last Name</label>
-                                    <input name="lastname" class="form-control" type="text" id="lastname" value="<?php echo $this->escapeHtml($person->LNAME);?>">
+                                    <input name="lastname" class="form-control" type="text" id="lastname" value="<?php echo $this->escapeHtml($p->LNAME);?>">
                                 </div>
                             </div>
 
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="middlename">Middle Name</label>
-                                    <input name="middlename" class="form-control" type="text" id="middlename" value="<?php echo $this->escapeHtml($person->MNAME);?>">
+                                    <input name="middlename" class="form-control" type="text" id="middlename" value="<?php echo $this->escapeHtml($p->MNAME);?>">
                                 </div>
                             </div>
 
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="name_suffix">Name Suffix</label>
-                                    <input name="name_suffix" class="form-control" type="text" id="name_suffix" value="<?php echo $this->escapeHtml($person->NAME_SUFFIX);?>">
+                                    <input name="name_suffix" class="form-control" type="text" id="name_suffix" value="<?php echo $this->escapeHtml($p->NAME_SUFFIX);?>">
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="row">
@@ -65,32 +55,34 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="umid">UM ID</label>
-                                    <input name="umid" class="form-control" type="text" id="umid" value="<?php echo $this->escapeHtml($person->UMID);?>">
+                                    <input name="umid" class="form-control" type="text" id="umid" value="<?php echo $this->escapeHtml($p->UMID);?>">
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="uniqname">Uniqname</label>
-                                    <input name="uniqname" class="form-control" type="text" id="uniqname" value="<?php echo $this->escapeHtml($person->UNIQNAME);?>">
+                                    <input name="uniqname" class="form-control" type="text" id="uniqname" value="<?php echo $this->escapeHtml($p->UNIQNAME);?>">
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="caen_id">Caen ID</label>
-                                    <input name="caen_id" class="form-control" type="text" id="caen_id" value="<?php echo $this->escapeHtml($person->CAEN_ID);?>">
+                                    <input name="caen_id" class="form-control" type="text" id="caen_id" value="<?php echo $this->escapeHtml($p->CAEN_ID);?>">
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="nickname">Nickname</label>
-                                    <input name="nickname" class="form-control" type="text" id="nickname" value="<?php echo $this->escapeHtml($person->NICKNAME);?>">
+                                    <input name="nickname" class="form-control" type="text" id="nickname" value="<?php echo $this->escapeHtml($p->NICKNAME);?>">
                                 </div>
                             </div>
 
                         </div>
+
+                        <button type="submit" class="btn btn-primary" formmethod="post" formaction="nextPerson">Next</button>
                     </fieldset>
             </div>
 
@@ -173,6 +165,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <button type="submit" class="btn btn-primary" formmethod="post" formaction="nextAddress">Next</button>
                                     </fieldset>
                                 </div>
 
@@ -201,34 +194,26 @@
                         <div class="row">
                             <div class="form-group">
                                 <div class="col-md-1">
-                                    <input type="text" class="form-control" id="areacode" name="areacode" placeholder="###" maxlength="3" value="<?php echo $this->escapeHtml($phone->AREA_CODE);?>">
+                                    <input type="text" class="form-control" id="areacode" name="areacode" placeholder="###" maxlength="3" value="">
                                 </div>
                                 <div class="col-md-1">
-                                    <input type="text" class="form-control" id="prefix" name="prefix" placeholder="###" maxlength="3" value="<?php echo $this->escapeHtml($phone->TEL_PREFIX);?>">
+                                    <input type="text" class="form-control" id="prefix" name="prefix" placeholder="###" maxlength="3" value="">
                                 </div>
                                 <div class="col-md-1">
-                                    <input type="text" class="form-control" id="number" name="number" placeholder="####" maxlength="4" value="<?php echo $this->escapeHtml($phone->TEL_NUMBER);?>">
+                                    <input type="text" class="form-control" id="number" name="number" placeholder="####" maxlength="4" value="">
                                 </div>
                                 <div class="col-md-2">
-                                    <input type="text" class="form-control" id="ext" name="ext" placeholder="ext." maxlength="8" value="<?php echo $this->escapeHtml($phone->EXTENSION);?>">
+                                    <input type="text" class="form-control" id="ext" name="ext" placeholder="ext." maxlength="8" value="">
                                 </div>
                                 <div class="col-md-2">
                                     <select class="form-control">
                                     </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" id="description" name="description" value="<?php echo $this->escapeHtml($person->DESCRIPTION);?>">
+                                    <input type="text" class="form-control" id="description" name="description" value="">
                                 </div>
                                 <div class="col-md-1">
                                     <label class="checkbox-inline">
-                                        <?php
-                                        if ($person->RESTRICTED == "Y")
-                                        {
-                                        ?>
-                                        <input type="checkbox" id="restrict" value="Y" CHECKED>
-                                        <?php } else { ?>
-                                        <input type="checkbox" id="restrict" value="Y">
-                                        <?php } ?>
                                     </label>
                                 </div>
                             </div>
@@ -238,21 +223,32 @@
 
                 </form>
             </div>
+
+        <?php endforeach; ?>
         </div>
 
     </div>
 </div>
 
+<!--
 <h3>PHONE Using Seperate Model</h3>
+/*
 <?php echo $this->escapeHtml($phone->AREA_CODE);?><br>
 <?php echo $this->escapeHtml($phone->TEL_PREFIX);?><br>
 <?php echo $this->escapeHtml($phone->TEL_NUMBER);?><br>
 <?php echo $this->escapeHtml($phone->CAEN_ID);?><br>
+*/
+-->
 
 
 
-
-
+<?php echo $this->paginationControl(
+    $this->paginator, 'Jumping', array('partial/paginator.phtml', 'Directory'),
+    array(
+        'route' => 'load'
+        )
+    );
+?>
 
 
 
