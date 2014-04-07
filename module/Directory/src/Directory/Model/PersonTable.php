@@ -23,7 +23,7 @@ class PersonTable
         if ($paginated)
         {
             $select = new Select('PEOPLE');
-            $select->where(array('LNAME' => 'Tresnak'));
+            $select->where(array('LNAME' => 'Patel'));
             $resultSetPrototype = new ResultSet();
             $resultSetPrototype->setArrayObjectPrototype(new Person());
 
